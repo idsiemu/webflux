@@ -9,4 +9,9 @@
           FROM example
          WHERE code = #{code}
     </select>
+    <select id="getItem" parameterType="hmap" resultType="hmap">
+        SELECT *
+          FROM user
+         WHERE idx = #{idx}
+    </select>
 </mapper>

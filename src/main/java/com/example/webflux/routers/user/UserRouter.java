@@ -14,6 +14,7 @@ public class UserRouter {
     public RouterFunction<ServerResponse> UserRouter(UserHandler handler){
         return RouterFunctions
                 .route(POST("/api/how-are-you"), handler::howAreYou)
+                .andRoute(POST("/api/im-fine-thank-you"), handler::imFineThankYou)
                 ;
     }
 }

@@ -41,4 +41,11 @@ public class UserService extends SessService {
         request.setResponseGeneric(responseDto);
         return request;
     }
+
+    public ServiceRequest imFineThankYou(ServiceRequest request) {
+        Map param = request.getParam();
+        Map data = (Map) getItem("example.webflux.getItem", param);
+        request.setResponse(data);
+        return request;
+    }
 }

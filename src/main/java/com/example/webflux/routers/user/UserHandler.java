@@ -24,4 +24,12 @@ public class UserHandler {
                         .map(userService::howAreYou)
                         .map(userService::returnGeneric), LoginResponseDto.class);
     }
+
+    public Mono<ServerResponse> imFineThankYou(ServerRequest request){
+        return ServerResponse.ok().body(
+                Mono.fromSupplier(() -> userService.makeData(request, ServiceRequest.class))
+                        .subscribeOn(Schedulers.elastic())
+                        .map(userService::imFineThankYou)
+                        .map(userService::returnData), Map.class);
+    }
 }
